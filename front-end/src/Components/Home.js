@@ -19,7 +19,6 @@ function Home() {
     family: 1,
   });
   const [error, setError] = useState();
-  const [response, setResponse] = useState();
 
   async function submit(e) {
     e.preventDefault();
@@ -32,13 +31,13 @@ function Home() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
-      });
-      fetch("/test2")
+      })
       .then((res) =>
          res.json())
       .then((text) => {
         console.log('GET response:');
         console.log(text); 
+        
         
       });
     }}
