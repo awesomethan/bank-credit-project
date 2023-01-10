@@ -33,12 +33,12 @@ function Home() {
         },
         body: JSON.stringify(data),
       });
-      fetch("/test")
+      fetch("/test2")
       .then((res) =>
          res.json())
       .then((text) => {
         console.log('GET response:');
-        console.log(text.greeting); 
+        console.log(text); 
         
       });
     }}
