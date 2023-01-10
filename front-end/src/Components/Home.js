@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 function Home() {
   const [data, setData] = useState({
     name: "",
@@ -26,8 +25,7 @@ function Home() {
     e.preventDefault();
     if (data.name == '' || data.birthDate == '' || data.monthEmployed == '' || data.occupation == '') {
       setError("Please fill in all the fields as all the information is required.")
-    }  else  {
-      setError("")
+    }  else  {  
       fetch("/test", {
         method: "POST",
         headers: {
@@ -35,14 +33,17 @@ function Home() {
         },
         body: JSON.stringify(data),
       });
-      fetch("/receive")
-        .then((res) => res.json())
-        .then((data) => {
-          setResponse(data);
-          console.log(data);
+      fetch("/test")
+      .then((res) =>
+         res.json())
+      .then((text) => {
+        console.log('GET response:');
+        console.log(text.greeting); 
+        
       });
-    }
-  }
+    }}
+
+  //
 
   return (
     <div>
@@ -150,6 +151,7 @@ function Home() {
               type="number"
               name="income"
               id="income"
+              min={0}
               value={data.income}
               onChange={(e) => setData({ ...data, income: e.target.value })}
               className="text-box box-size-2"
