@@ -214,7 +214,7 @@ function Home() {
                 <option value="single">Single/Not Married</option>
                 <option value="civil marriage">Civil Marriage</option>
                 <option value="separated">Separated</option>
-                <option value="widow">widow</option>
+                <option value="widow">Widow</option>
               </optgroup>
             </select>
           </div>
